@@ -1,7 +1,13 @@
-[DDM] Examples
+[DDM](https://github.com/phodal/ddm) Examples
 ===
 
+> A Series Demo for Usage of DDM
 
+With
+
+ - React
+ - Angular
+ - Vue.js
 
 License
 ---
