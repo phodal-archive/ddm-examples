@@ -10,11 +10,11 @@ export class AppComponent {
 
   constructor(http:Http) {
     this.http = http;
-    this.getBlogs();
+    this.getBlog();
   }
 
 
-  getBlogs() {
+  getBlog() {
     this.http.get('http://localhost:12306/')
       .map(res => res.json())
       .subscribe(
