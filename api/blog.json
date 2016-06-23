@@ -1,9 +1,15 @@
 [
     {
-        "author": "phodal",
-        "content": "this is a content",
-        "date": "2016-06-23",
-        "slug": "this-is-hello",
-        "title": "hello"
+        "response": {
+            "json": [
+                {
+                    "author": "phodal",
+                    "content": "this is a content",
+                    "date": "2016-06-23",
+                    "slug": "this-is-hello",
+                    "title": "hello"
+                }
+            ]
+        }
     }
 ]
