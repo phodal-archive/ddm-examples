@@ -6,7 +6,25 @@ import {Http} from '@angular/http';
     template: '<h1>My First Angular 2 App</h1>'
 })
 export class AppComponent {
+  private http: any;
+
   constructor(http:Http) {
-    
+    this.http = http;
+    this.getBlogs();
+  }
+
+
+  getBlogs() {
+    this.http.get('http://localhost:12306/')
+      .map(res => res.json())
+      .subscribe(
+        data => console.log(data),
+        err => this.logError(err),
+        () => console.log('Random Quote Complete')
+      );
+  }
+
+  private logError(err:any) {
+    console.log(err)
   }
 }
