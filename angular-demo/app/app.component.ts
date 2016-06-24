@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Http} from '@angular/http';
+import * as DDM from 'ddm';
 
 @Component({
     selector: 'my-app',
@@ -15,10 +16,10 @@ export class AppComponent {
 
 
   getBlog() {
-    this.http.get('http://localhost:12306/')
+    this.http.get('http://localhost:3030/blog.json')
       .map(res => res.json())
       .subscribe(
-        data => console.log(data),
+        data => this.convert(data),
         err => this.logError(err),
         () => console.log('Random Quote Complete')
       );
@@ -26,5 +27,15 @@ export class AppComponent {
 
   private logError(err:any) {
     console.log(err)
+  }
+
+  private convert(data:any) {
+    var SEOBlog = {};
+    var ddm = new DDM();
+    ddm.get(['title', 'blog', 'author'])
+      .from(data)
+      .remove('title')
+      .to(SEOBlog);
+    console.log(SEOBlog);
   }
 }
