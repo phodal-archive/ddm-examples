@@ -10,6 +10,7 @@
 import React from 'react';
 import Home from './Home';
 import fetch from '../../core/fetch';
+import {DDM} from 'ddm';
 
 export default {
 
@@ -29,6 +30,12 @@ export default {
     });
     const { data } = await resp.json();
     if (!data || !data.news) throw new Error('Failed to load the news feed.');
+    console.log(DDM);
+    var ddm = new DDM();
+
+    var newObject = {};
+    ddm.get(['title','link','contentSnippet']).from(data.news).to(newObject);
+    console.log(newObject);
     return <Home news={data.news} />;
   },
 
